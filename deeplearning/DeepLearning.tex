@@ -1,0 +1,108 @@
+
+\documentclass[12pt,reqno]{book}      % Sets 12pt font, equation numbers on right
+\usepackage{amsmath,amssymb,amsthm,amsfonts} % Typical maths resource packages
+\usepackage{graphics}                 % Packages to allow inclusion of graphics
+\usepackage{color}                    % For creating coloured text and background
+\usepackage[margin=1in]{geometry}
+
+\usepackage[colorlinks,citecolor=blue,linkcolor=blue]{hyperref}                 % For creating hyperlinks in cross references. It should be after the color package. The option colorlinks produces colored entries without boxes. The option citecolor=blue changes the default green citations to blue.
+
+\usepackage{pgfplots}
+
+
+\DeclareGraphicsExtensions{.pdf}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}{Definition}
+
+
+\def\R{\mathbb{ R}}
+\def\S{\mathbb{ S}}
+\def\I{\mathbb{ I}}
+\makeindex
+
+
+\title{A \LaTeX \ Book Skeleton  }
+
+\author{\htmladdnormallink           % Puts a hyperlink on to the author's name
+{Stephen O'Brien}{https://github.com/wayofthepie}
+{\small\em \copyright 2017 }}
+
+\date{ }
+    
+\begin{document}
+\maketitle
+\addcontentsline{toc}{chapter}{Contents}
+\pagenumbering{roman}
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\chapter{Neural Networks}
+\section{Basics}
+If $x$ is a picture we want to predict the probability ($\hat{y}$) that this is a picture of some specific type, e.g a cat picture. More formally - given $x \in \mathbb{R}^{n_{x}}$, $w \in \mathbb{R}^{n_{x}}$ and 
+$b \in \mathbb{R}$, we want $\hat{y} = P(y=1 | x)$. How do we get $\hat{y}$?
+
+We could try the following linear function: $\hat{y} = w^\intercal b$. But this isn't a good algorithm for binary classification as we want the output, $\hat{y}$ to be $0 \leq \hat{y} \leq 1$ as $w^\intercal b$ can be much bigger than $1$ or even negative!
+
+Let $z \in \mathbb{R}$,  $z = w^\intercal + b$, therefore in Logistic regression our output instead will be:
+
+\begin{align}
+\sigma(z) = \dfrac{1}{1 + e^{-z}}
+\end{align}
+
+Note that $\sigma$ is a sigmoid function (in this case a \textit{logistic curve}), who's characteristic shape is given below:
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        grid=major,     
+        xmin=-6,
+        xmax=6,
+        axis x line=bottom,
+        ytick={0,.5,1},
+        ymax=1,
+        axis y line=middle,
+        ytick={0,0.5},
+        xticklabels={,,},
+        xlabel={z}
+    ]
+        \addplot
+        [
+            blue,
+            mark=none,
+            samples=100,
+            domain=-6:6,
+        ]
+        (x,{1/(1+exp(-x))});
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+Given the above, if
+
+\begin{itemize}
+	\item $z$ is large then $\sigma(z) \approx \dfrac{1}{1 + 0} = 1$
+    \item $z$ is a large negative number then $\sigma(z) = \dfrac{1}{1 + e^{-z}} \approx \dfrac{1}{1 + \text{Bignum}} \approx 0$
+\end{itemize}
+
+\pagestyle{headings}
+\pagenumbering{arabic}
+
+\include{ch1}
+\include{ch2}
+
+\begin{thebibliography}{99}
+  \addcontentsline{toc}{chapter}{Bibliography}
+\bibitem{lamport} L. Lamport. {\bf \LaTeX \ A Document Preparation System}
+Addison-Wesley, California 1986.
+\end{thebibliography}
+
+\include{index}
+ \addcontentsline{toc}{chapter}{Index}
+\end{document}
