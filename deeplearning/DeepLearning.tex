@@ -91,15 +91,13 @@ Given the above, if
     \item $z$ is a large negative number then $\sigma(z) = \dfrac{1}{1 + e^{-z}} \approx \dfrac{1}{1 + \text{Bignum}} \approx 0$
 \end{itemize}
 
-
-\subsection{Cost Function}
-The \textit{Logistic Regression} cost function is defined as 
-
+So we get
 \begin{align}
 \hat{y} = \sigma(w^\intercal x + b) \text{, where } \sigma(z) = \dfrac{1}{1 + e^{-z}}
 \end{align}
 
 
+\subsection{Cost Function}
 Given $\big( x^{(1)}, y^{(1)} \big),\dots{} , \big( x^{(m)}, y^{(m)} \big)$, we want $\hat{y}^{(i)} \approx y^{(i)}$, where $m$ is the training set size. The \textit{loss/error function} $\mathscr{L}$ is need to measure how good our output $\hat{y}$ is when the true label is $y$.  For logistic regression using the squared error  \textit{loss function} will not work well, as it has many local optima. The squared error function is 
 
 \begin{align}
