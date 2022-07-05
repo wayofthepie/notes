@@ -8,7 +8,7 @@ The three ways
 * The principles of Continual Learning and Experimentation
 
 ```mermaid
-graph LR
+flowchart LR
     subgraph LeadTime[Lead Time]
         ticket[Ticket Created] --> ProcessTime;
         subgraph ProcessTime[Process Time]
