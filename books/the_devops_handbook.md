@@ -25,5 +25,5 @@ sequenceDiagram
     participant WorkCompleted[WorkCompleted]
     TicketCreated->>WorkCompleted: LeadTime[Lead Time]
     WorkStarted->>WorkCompleted: ProcessTime[Process Time]
-    Note right of WorkCompleted:
+    Note right of WorkCompleted: "Test"
 ```
