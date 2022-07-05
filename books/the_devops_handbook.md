@@ -8,9 +8,11 @@ The three ways
 * The principles of Continual Learning and Experimentation
 
 ```mermaid
-graph LR
+flowchart LR
+    subgraph LeadTime
     ticket[Ticket Created] --> start[Work Started];
     start[Work Started] --> complete[Work Completed];
+    end
 ```
 
 ```mermaid
