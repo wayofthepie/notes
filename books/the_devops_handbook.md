@@ -10,8 +10,10 @@ The three ways
 ```mermaid
 flowchart LR
     subgraph LeadTime
-    ticket[Ticket Created] --> start[Work Started];
-    start[Work Started] --> complete[Work Completed];
+        ticket[Ticket Created] --> start[Work Started];
+            subgraph ProcessTime
+            start[Work Started] --> complete[Work Completed];
+        end
     end
 ```
 
