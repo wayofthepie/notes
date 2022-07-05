@@ -20,10 +20,10 @@ flowchart LR
 ```mermaid
 %%{init: { 'sequence': {'messageAlign': 'left'} }}%%
 sequenceDiagram
-    participant TicketCreated
-    participant WorkStarted
-    participant WorkCompleted
-    TicketCreated->>WorkCompleted: LeadTime
-    WorkStarted->>WorkCompleted: ProcessTime
-    Note right of WorkCompleted: Rational thoughts <br/>prevail!
+    participant TicketCreated[Ticket Created]
+    participant WorkStarted[Work Started]
+    participant WorkCompleted[WorkCompleted]
+    TicketCreated->>WorkCompleted: LeadTime[Lead Time]
+    WorkStarted->>WorkCompleted: ProcessTime[Process Time]
+    Note right of WorkCompleted:
 ```
