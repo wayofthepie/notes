@@ -23,7 +23,7 @@ sequenceDiagram
     participant TicketCreated
     participant WorkStarted
     participant WorkCompleted
-    TicketCreated->>WorkCompleted: LeadTime
-    WorkStarted->>WorkCompleted: ProcessTime
+    TicketCreated->>WorkCompleted: Lead time
+    WorkStarted->>WorkCompleted: Process time
     Note over TicketCreated,WorkCompleted: Lead time is what the customer experiences.
 ```
