@@ -18,6 +18,7 @@ flowchart LR
 ```
 
 ```mermaid
+%%{init: { 'sequence': {'messageAlign': 'left'} }}%%
 sequenceDiagram
     participant TicketCreated
     participant WorkStarted
